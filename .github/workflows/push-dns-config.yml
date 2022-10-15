@@ -1,0 +1,20 @@
+name: Push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: DNSControl push
+        uses: koenrh/dnscontrol-action@v3
+        env:
+          GANDI_API_KEY: ${{ secrets.GANDI_API_KEY }}
+          GANDI_SHARING_ID: ${{ secrets.GANDI_SHARING_ID }}
+        with:
+          args: push

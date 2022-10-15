@@ -1,0 +1,19 @@
+name: Preview
+
+on: pull_request
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: DNSControl preview
+        uses: koenrh/dnscontrol-action@v3
+        id: dnscontrol_preview
+        env:
+          GANDI_API_KEY: ${{ secrets.GANDI_API_KEY }}
+          GANDI_SHARING_ID: ${{ secrets.GANDI_SHARING_ID }}
+        with:
+          args: preview
+
