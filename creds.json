@@ -1,0 +1,16 @@
+{
+  "bind": {
+    "TYPE": "BIND"
+  },
+  "gandi": {
+    "TYPE": "GANDI_V5",
+    "apikey": "$GANDI_API_KEY",
+    "sharing_id": "$GANDI_SHARING_ID"
+  },
+  "none": {
+    "TYPE": "NONE"
+  },
+  "ThirdParty": {
+    "TYPE": "NONE"
+  }
+}
