@@ -1,0 +1,22 @@
+var gandi = NewDnsProvider("gandi", "-");
+var REG_CHANGEME = NewRegistrar("ThirdParty");
+D("mon-domaine.com", REG_CHANGEME
+  , DnsProvider(gandi)
+  , DefaultTTL(10800)
+  , A('@', '217.123.456.789')
+  , MX('@', 5, 'mail.gandi.net.')
+  , MX('@', 10, 'spool.mail.gandi.net.')
+  , MX('@', 50, 'fb.mail.gandi.net.')
+  , CNAME('gm1._domainkey', 'gm1.gandimail.net.')
+  , CNAME('gm2._domainkey', 'gm2.gandimail.net.')
+  , CNAME('gm3._domainkey', 'gm3.gandimail.net.')
+  , CNAME('webmail', 'webmail.gandi.net.')
+  , CNAME('www', 'webredir.vip.gandi.net.')
+  , SRV('_imap._tcp', 0, 0, 0, '.')
+  , SRV('_imaps._tcp', 0, 1, 993, 'mail.gandi.net.')
+  , SRV('_pop3._tcp', 0, 0, 0, '.')
+  , SRV('_pop3s._tcp', 10, 1, 995, 'mail.gandi.net.')
+  , SRV('_submission._tcp', 0, 1, 465, 'mail.gandi.net.')
+  , CNAME('app-1', 'app-1.some_provider.com.')
+  , CNAME('app-2', 'app-2.other_provider.net.')
+)
